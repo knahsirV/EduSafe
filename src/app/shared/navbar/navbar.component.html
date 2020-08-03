@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+        <div class="navbar-translate">
+            <a *ngIf="preLogin() && !isLogin()" class="navbar-brand" href="#/home"><i class="nc-icon nc-hat-3"></i>
+                &nbsp;EduSafe</a>
+            <a *ngIf="preLogin() && isLogin()" class="navbar-brand" href="#/home" style="color: rgb(48, 48, 46);"><i class="nc-icon nc-hat-3"></i>
+                &nbsp;EduSafe</a>
+            <a *ngIf="!preLogin()" class="navbar-brand" href="#/dashboard"><i class="nc-icon nc-hat-3"></i>
+                &nbsp;EduSafe</a>
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li *ngIf="preLogin()" class="nav-item">
+                    <a *ngIf="isLogin()" href="" class="nav-link" style="color: rgb(32, 32, 32);"><i class="nc-icon nc-alert-circle-i"></i> About</a>
+                    <a *ngIf="!isLogin()" href="https://youtu.be/NrYQiB2ujpU" class="nav-link"><i class="nc-icon nc-alert-circle-i"></i> About</a>
+                </li>
+                <li *ngIf="preLogin()" class="nav-item">
+                    <a *ngIf="isHome()" href="#/signup" class="btn btn-warning btn-round">Sign Up</a>
+                    <a *ngIf="isSignup()" href="#/signup" class="btn btn-outline-warning btn-round">Sign Up</a>
+                    <a *ngIf="isLogin()" href="#/signup" class="btn btn-outline-default btn-round" >Sign Up</a>
+                </li>
+                <li *ngIf="!preLogin()" class="nav-item">
+                    <a class="nav-link"><i class="nc-icon nc-settings-gear-65"></i></a>
+                </li>
+                <li *ngIf="!preLogin()" class="nav-item">
+                    <div ngbDropdown class="d-inline-block dropdown">
+                        <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-bell-55"></i></a>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-warning">
+                           <a class="dropdown-header">Notifications</a>
+                           <a class="dropdown-item">You have completed module 29 of Fi...</a>
+                           <a class="dropdown-item">You have completed module 17 of To...</a>
+                           <a class="dropdown-item">You have completed module 43 of La...</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
